@@ -7,7 +7,8 @@ using namespace std;
 /* 初始化列表
  1> 初始化列表是一种便捷的初始化成员变量的方式.
  2> 初始化列表只能用在构造函数中
- 3> 初始化顺序, 只跟成员变量的声明顺序有关
+ 3> 初始化顺序, 只跟成员变量的声明顺序有关(即内存的排布),先声明的成员变量先初始化 
+ 4> 如果既写了初始化列表,又写了具体代码, 那么会先执行初始化列表,再执行代码
  */
 
 struct Person{
@@ -34,6 +35,13 @@ struct Person{
          系统在调用构造函数时,发现构造函数有初始化列表, 因此将 使用初始化列表来初始化对象,相当于 m_age(10), m_height(1.88)
          */
     }
+    
+//    如果既写了初始化列表,又在里面写了代码初始化, 那么会先执行初始化列表,再执行代码
+//    Person (int age, double height) : m_age(10), m_height(20){ // ':'后面开始的就是初始化列表的写法
+//                会先执行初始化列表,再执行代码
+//                this -> m_age = age;
+//                this -> m_height = height;
+//    }
     
     void display(){
         cout << "age is " << m_age << endl;
@@ -89,6 +97,17 @@ struct GoodStudent {
 //    }
 };
 
+
+
+
+struct Dog{
+    int m_age;
+    Dog(int age );
+}
+
+Dog::Dog(int age) : m_age(age){ // 初始化列表只能写在函数的实现
+    
+}
 int main(){
     
     Person *p = new Person(10,1.88);
