@@ -21,8 +21,11 @@ class Student : public Person{
  4. 如果有 销毁单例的要求, 需要再写一个 静态成员方法给外部访问 删除单例
  */
 class TcpTool{
+
+private:
+    static TcpTool *ms_tool ; // 2. 定义一个私有的 静态的 当前类对象指针
 public:
-   static TcpTool *shareTool(){ // 提供对外的 当前类指针接口
+    static TcpTool *shareTool(){ // 提供对外的 当前类指针接口
         if (ms_tool == NULL ) {
             ms_tool = new  TcpTool();
         }
@@ -33,12 +36,10 @@ public:
         if (ms_tool == NULL ) {
             return;
         }
-      
+        
         delete ms_tool;
         ms_tool = NULL;
     }
-private:
-    static TcpTool *ms_tool ; // 2. 定义一个私有的 静态的 当前类对象指针
     TcpTool(){ //1. 构造函数私有化, 不允许外部访问
         cout << "TcpTool()" << endl;
     }

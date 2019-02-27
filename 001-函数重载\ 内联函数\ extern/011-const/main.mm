@@ -6,8 +6,8 @@ using namespace std;
  
  1. const 常量是不能被修改的
  2. const 常量,在初识化时必须赋值
- 3. const 常量 结构体/ 类 是不能被修改的, 其内部的成员变量也是不能被修改的
- 4. const 常量 结构体指针/ 类指针, 其内部的成员变量是不能被修改的
+ 3. const 常量 结构体/ 类/结构体指针/ 类指针 是不能被修改的, 其内部的成员变量也是不能被修改的
+ 4. const 常量, 只能调用const 函数和 static 函数 (因为const 函数和static 函数内部不允许修改成员变量)
  */
 
 struct Student{
@@ -139,6 +139,33 @@ void display(int &a ){
 
 
 
+// const char * 可以接收 const char * 和 非 const char *
+// 在C++ 中,当一个函数接收一个字符串类型的参数时, 通常都是定义为 const char * , 这样可以接收所有的字符串
+class CosntChar{
+    char *m_name;
+public:
+    
+    CosntChar(const char *name){
+        if (name == NULL)  return;
+        this->m_name = new char[strlen(name) + 1]{};
+        strcpy(this->m_name, name);
+    }
+    
+    void display(){
+        cout << "name: " << this->m_name <<  endl;
+    }
+    
+    static void testCosntChar(){
+        // 在C++ 中 "zhangsan" 是常量, 只能使用cosnt char * 接收
+        
+        CosntChar constChar("zhangsan"); // 接收 字符串常量
+        constChar.display();
+        
+        char name[] = {'b','m', 'w' ,'\0'};
+        CosntChar constChar2(name); // 接收 非字符串常量
+        constChar2.display();
+    }
+};
 
 
 

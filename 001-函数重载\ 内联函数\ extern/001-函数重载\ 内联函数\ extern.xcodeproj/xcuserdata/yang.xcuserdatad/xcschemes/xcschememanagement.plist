@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>0.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>38</integer>
+		</dict>
 		<key>001-函数重载\ 内联函数\ extern.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -184,6 +189,11 @@
 			<key>orderHint</key>
 			<integer>33</integer>
 		</dict>
+		<key>035-static静态成员 和 单例模式.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>36</integer>
+		</dict>
 		<key>035-静态成员.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -193,6 +203,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>37</integer>
+		</dict>
+		<key>036-static静态成员 和 单例模式.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>49</integer>
 		</dict>
 		<key>038-拷贝构造函数.xcscheme</key>
 		<dict>
@@ -223,6 +238,71 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>38</integer>
+		</dict>
+		<key>043-默认构造函数.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>43</integer>
+		</dict>
+		<key>044-友元.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>44</integer>
+		</dict>
+		<key>045-内部类.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>45</integer>
+		</dict>
+		<key>046-局部类.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>46</integer>
+		</dict>
+		<key>047-运算符重载.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>47</integer>
+		</dict>
+		<key>048-运算符重载(String).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>48</integer>
+		</dict>
+		<key>048-运算符重载.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>38</integer>
+		</dict>
+		<key>049-调用父类的运算符重载函数.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>49</integer>
+		</dict>
+		<key>050-C++ 中的单例模式.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>50</integer>
+		</dict>
+		<key>051-仿函数 (函数对象).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>51</integer>
+		</dict>
+		<key>052-模板(template).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>52</integer>
+		</dict>
+		<key>053-模板函数.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>53</integer>
+		</dict>
+		<key>053-模板类.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>54</integer>
 		</dict>
 		<key>37-引用类型成员变量.xcscheme</key>
 		<dict>

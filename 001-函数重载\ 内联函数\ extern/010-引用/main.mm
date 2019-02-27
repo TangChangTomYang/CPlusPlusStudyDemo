@@ -5,6 +5,7 @@
 using namespace std;
 
 
+
 // 指针
 void testPointer(){
     
@@ -202,6 +203,84 @@ int &func2(){
     return age;
 }
 
+
+// 引用作为函数的参数和函数的返回值的价值
+// 参考040-对象类型参数和返回值-中间对象
+//settings -> compiler -> compiler flag -> other flag -> 写入“-fno-elide-constructors”
+
+class BigMan{
+    int  m_age;
+public:
+    BigMan(int age):m_age(age){
+        cout << "构造:BigMan(int age):" << this << endl;
+    }
+    
+    BigMan(const BigMan &bigMan): m_age(bigMan.m_age){
+         cout << "拷贝构造:BigMan(int age):" << this << endl;
+    }
+    
+    ~BigMan(){
+        cout << "~BigMan()" << endl;
+    }
+}
+
+void  testBigMan(BigMan bigMan){//  对象类型 作为函数参数, 产生临时中间对象
+}
+BigMan createBigMan(){ // 返回对象类型 产生临时中间对象
+    BigMan bgman(20);
+    return bgman;
+}
+
+void  testBigMan2(BigMan &bigMan){ // 引用避免临时中间对象产生
+}
+BigMan &createBigMan(){// 引用避免临时中间对象产生
+    BigMan bgman(20);
+    return bgman;
+}
+
+
+// 引用的价值之一, 函数返回引用类型
+class Point{
+    int m_x;
+    int m_y;
+public:
+    Point(int x, int y):m_x(x), m_y(y){
+        
+    }
+    
+    void display(){
+        cout << "(x= " << this->m_x << ", y= " << this->m_y << ")" << endl;
+    }
+    
+    // 运算符 重载 ++a
+    Point &operator++(){
+        this->m_x += 1;
+        this->m_y += 1;
+        return *this;
+    }
+    
+    
+    Point operator+(Point p){
+        this->m_x += p.m_x;
+        this->m_y += p.m_y;
+        return  Point(this->m_x, this->m_y);
+        
+    }
+    
+    
+    // 测试引用的价值
+    static void test(){
+        Point p(10,20);
+        p.display();
+        
+        (++p).display();
+        
+        (++p + Point(20,30)).display();
+        
+    }
+};
+
+
 int main(){
     func1() = 20;
     func2() = 30;
@@ -226,7 +305,9 @@ int main(){
     
     
     
- 
+    // 测试引用的价值
+    Point::test(){
+        
     
     getchar();
     return 0;

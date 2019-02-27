@@ -96,24 +96,24 @@ void testCar(){
     dCar1->display();
     cout << endl;
     
-    Car zcCar1 = Car(zCar1); // 栈拷贝
+    Car zcCar1 = Car(zCar1); // 栈拷贝 (栈 拷贝 栈)
     zcCar1.display();
-    Car *dcCar1 = new  Car(zCar1); // 堆拷贝
+    Car *dcCar1 = new  Car(zCar1); // 堆拷贝 (堆 拷贝 栈)
     dcCar1->display();
     cout << endl;
     
-    Car zcCar11 = zCar1; // 栈拷贝 等价于  Car zcCar11 = Car(zCar1);
+    Car zcCar11 = zCar1; // 栈拷贝 等价于  Car zcCar11 = Car(zCar1); (栈 拷贝 栈 )
     zcCar11.display();
     
-    // 注意下面这种写法不是拷贝, 是赋值
-    Car zCar50(50);
+    // 注意下面 这种写法 不是拷贝, 是赋值 (赋值 相当于 浅拷贝, 左边的对象地址不会变)
+    Car zCar50(50); // 栈对象
     cout << "---zCar50----" << &zCar50 << endl;
-    Car zcCar50;
+    Car zcCar50;    // 栈对象
     cout << "---zcCar50----" << &zcCar50 << endl;
     // 注意, 这里不是拷贝操作是赋值操作,是将zCar50 的空间赋值给zcCar50
     // 拷贝是利用一个已经存在的对象产生一个新对象, 而赋值不会产生新对象
     zcCar50 = zCar50;
-    cout << "---zcCar50----" << &zcCar50 << endl;
+    cout << "---zcCar50----" << &zcCar50 << endl; // 浅拷贝
     cout << endl;
     
     Car zcCar2 = Car(*dCar1); // 栈拷贝
